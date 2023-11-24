@@ -12,9 +12,11 @@ let initial_path = path.join(__dirname, "views");
 //Importing query functions from query.js
 let { get_keyword_results, get_semantic_results, get_hybrid_results, get_movie_details, get_recommended_movies } = require('./queries')
 
+
 const client = weaviate.client({
   scheme: 'http',
-  host: 'localhost:8080',
+  host: 'localhost',
+  port: '8080' // Replace with your endpoint
 });
 
 // variable storing the searched text
@@ -26,6 +28,7 @@ let id = "";
 app.get('/', (req, res) => {
   res.render(path.join(initial_path, "search.ejs"), { movie_info: {} });
 })
+
 
 //perform query for seached text
 app.get('/search', (req, res) => {

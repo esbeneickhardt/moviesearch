@@ -28,6 +28,5 @@
     "isomorphic-fetch": {
       "node-fetch": "^2.6.7"
     }
-  },
-  "type": "module"
+  }
 }

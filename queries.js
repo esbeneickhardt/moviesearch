@@ -2,13 +2,11 @@ const { default: weaviate } = require('weaviate-ts-client');
 require('dotenv').config();
 
 const client = weaviate.client({
-    scheme: 'http',
-    host: 'localhost',
-    port: 8080,
+  scheme: 'http',
+  host: 'localhost:8080',
 });
 
 let num_movies = 20;
-
 
 //Query to fetch keyword results
 async function get_keyword_results(text) {
@@ -62,7 +60,6 @@ async function get_semantic_results(text) {
         });
         return data;
     }
-
 }
 
 //Query to fetch results by sematic searching
@@ -97,8 +94,6 @@ async function get_hybrid_results(text) {
             });
         return data;
     }
-
-
 }
 
 //Query to fetch movie details
@@ -140,5 +135,4 @@ async function get_recommended_movies(mov_id) {
     return data;
 }
 
-//Exporting these function as they need to be used in index.js
-module.exports = { get_keyword_results, get_semantic_results, get_hybrid_results, get_movie_details, get_recommended_movies }
+module.exports = { get_keyword_results, get_semantic_results, get_hybrid_results, get_movie_details, get_recommended_movies };
